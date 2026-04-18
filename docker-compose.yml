@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgis/postgis:15-3.3
+    container_name: adwr_postgis
+    environment:
+      POSTGRES_USER: env_analyst
+      POSTGRES_PASSWORD: tucson_water
+      POSTGRES_DB: adwr_groundwater
+    ports:
+      - "5432:5432"
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+
+volumes:
+  pg_data:
